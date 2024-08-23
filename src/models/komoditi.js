@@ -100,7 +100,7 @@ exports.komoditiPrice = (data, tanggal, guntur, kadungora, cikajang, pamengpeuk,
                 hasil = -hasil;
               }
               hasil = hasil.toFixed(2);
-              const queryPrice = `INSERT INTO price (id_komoditi, satuan, tanggal, p_guntur, p_kadungora, p_cikajang, p_pamengpeuk, p_samarang, p_malangbong, med_minggu_ini, med_minggu_lalu, keterangan, persentase ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING *`;
+              const queryPrice = `INSERT INTO price (id_komoditi, satuan, tanggal, p_guntur, p_kadungora, p_cikajang, p_pameungpeuk, p_samarang, p_malangbong, med_minggu_ini, med_minggu_lalu, keterangan, persentase ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING *`;
               const valPrice = [id_komoditi, data.satuan, tanggal, guntur, kadungora, cikajang, pamengpeuk, samarang, malangbong,
               rata_minggu_ini, rata_minggu_lalu, keterangan, hasil];
               db.query(queryPrice,valPrice,(err, resFnnal)=>{

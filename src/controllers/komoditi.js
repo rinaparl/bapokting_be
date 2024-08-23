@@ -159,14 +159,14 @@ exports.komoditiPrice= (req, res)=>{
   const p_guntur = req.body.p_guntur
   const p_kadungora = req.body.p_kadungora
   const p_cikajang = req.body.p_cikajang
-  const p_pamengpeuk = req.body.p_pamengpeuk
+  const p_pameungpeuk = req.body.p_pameungpeuk
   const p_samarang = req.body.p_samarang
   const p_malangbong = req.body.p_malangbong
 
   const guntur      = parseInt(p_guntur)
   const kadungora   = parseInt(p_kadungora)
   const cikajang    = parseInt(p_cikajang)
-  const pamengpeuk  = parseInt(p_pamengpeuk)
+  const pamengpeuk  = parseInt(p_pameungpeuk)
   const samarang    = parseInt(p_samarang)
   const malangbong  = parseInt(p_malangbong)
 
@@ -179,6 +179,7 @@ exports.komoditiPrice= (req, res)=>{
   const today = new Date();
   const day = today.getDate();
   const month = today.getMonth() + 1; 
+
   const monthNames = [
     "Januari",
     "Februari",
@@ -196,9 +197,12 @@ exports.komoditiPrice= (req, res)=>{
   const year = today.getFullYear();
 
   const tanggal = `${day} ${monthNames[month - 1]} ${year}`;
+  // console.log(typeof(rata_minggu_ini));
 
   komoditiModel.komoditiPrice(req.body, tanggal, guntur, kadungora, cikajang, pamengpeuk, samarang, malangbong,
         rata_minggu_ini, (err, results)=>{
+          console.log(err);
+          
     return response(res, 'Create Price Komoditi success', results);
   });
 };

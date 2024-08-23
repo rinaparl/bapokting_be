@@ -12,7 +12,7 @@ const auth = (req, res, next) => {
         console.error('Token is missing or still a placeholder');
         return response(res, 'Invalid Token', null, null, 401);
       }
-      console.log('Extracted token:', token); // Log token yang diterima
+      // console.log('Extracted token:', token); // Log token yang diterima
       try {
         const results = jwt.verify(token, process.env.APP_SECRET || 'D3f4uLt');
         req.authUser = results;
